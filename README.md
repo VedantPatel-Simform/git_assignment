@@ -48,3 +48,57 @@
     ```bash
     git reset <commit-id>
     ```
+
+# Practical Exercises
+
+
+- create new branch from develop
+    ```bash
+    git checkout develop
+    git branch TE-T181
+    ```
+
+- add commit message hooks to check if the first letter of the msg is capitalized.
+    Hook code:
+    ```bash
+    #!/bin/bash
+
+    commit_msg_file=$1
+    commit_msg=$(cat "$commit_msg_file")
+
+    first_letter=$(echo "$commit_msg" | head -c 1)
+
+    if [[ "$first_letter" =~ [a-z] ]]; then
+        echo "Error: The commit message must start with a capital letter."
+        exit 1
+    fi
+
+    exit 0
+    ```
+
+- add multiple commits
+
+- create a pull request
+    ```bash
+    git push origin TE-T181
+    ```
+
+- create another branch
+    ```bash
+    git branch TE-T181-feature1
+    ```
+    add commits in this branch
+
+- merge the Pull request with id `TE-T181 PR #1` to `develop` branch
+- update the current `develop` branch by pulling the changes from remote branch and then create Pull Request again of current branch.
+   ```bash
+    git pull origin develop
+    ```
+
+    ```bash
+    git push origin TE-T181-feature1
+    ```
+- add tag to latest develop branch
+    ``` bash
+    git tag -a v1.0.0 -m "my version 1.0.0" 
+    ```
