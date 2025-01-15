@@ -48,6 +48,7 @@
     ```bash
     git reset <commit-id>
     ```
+
 # Practical Exercises
 
 
